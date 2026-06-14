@@ -1,0 +1,124 @@
+set $mod Mod4
+set $term alacritty
+set $browser firefox
+
+set $bg #1e1e2e
+set $fg #cdd6f4
+set $blue #89b4fa
+set $red #f38ba8
+set $mauve #cba6f7
+set $surface0 #313244
+
+client.focused $blue $bg $fg $mauve $blue
+client.unfocused $surface0 $bg $fg $surface0 $surface0
+client.urgent $red $bg $fg $red $red
+
+input "type:keyboard" {
+    xkb_layout "us,ru"
+    xkb_options "grp:alt_shift_toggle"
+}
+
+input "type:touchpad" {
+    tap enabled
+    natural_scroll enabled
+}
+
+gaps inner 0
+gaps outer 0
+focus follows no
+
+# Режим по умолчанию - вкладки (tabbed)
+workspace_layout tabbed
+
+# Автозапуск
+exec waybar
+exec dunst
+exec wl-paste --watch cliphist store
+
+seat seat0 hide_cursor 5000
+xwayland enable
+
+# Плавающие окна (оставить как есть)
+for_window [app_id="keepassxc"] floating enable
+for_window [title="Save File"] floating enable
+for_window [title="Open File"] floating enable
+
+# Программы
+bindsym $mod+Return exec $term
+bindsym $mod+f exec $browser
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+q kill
+
+# Навигация между окнами (вкладками)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Tab focus left  # Переключение между вкладками
+bindsym $mod+Shift+Tab focus right
+
+# Перемещение окон
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Рабочие пространства
+bindsym $mod+1 workspace number 1
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+Shift+5 move container to workspace number 5
+
+# Layout (можно переключаться между режимами)
+bindsym $mod+v layout toggle split  # Обычный режим
+bindsym $mod+s layout stacking     # Стек (другой вариант)
+bindsym $mod+t layout tabbed       # Вкладки
+
+bindsym $mod+Shift+f fullscreen toggle
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exec swaymsg exit
+
+# Rofi для переключения между окнами
+bindsym $mod+W exec rofi -show window
+
+# Буфер обмена (cliphist)
+# Показать историю буфера обмена (Win+Shift+V)
+bindsym $mod+Shift+v exec cliphist list | rofi -dmenu -p "Clipboard History" | cliphist decode | wl-copy
+# Очистить историю буфера обмена (Win+Shift+Ctrl+V)
+bindsym $mod+Shift+Ctrl+v exec cliphist wipe && notify-send "Clipboard History" "Очищена"
+
+# Мультимедиа
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Яркость
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+# Скриншоты
+bindsym Print exec grim - | wl-copy
+bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
+
+# Система
+bindsym $mod+Shift+o exec swaylock -f
+bindsym $mod+Shift+p exec systemctl suspend
+bindsym $mod+Shift+i exec systemctl hibernate
+bindsym $mod+Shift+r exec systemctl reboot
+bindsym $mod+Shift+u exec systemctl poweroff
+
+# Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+output * bg ~/.config/sway/storm.jpg fill
