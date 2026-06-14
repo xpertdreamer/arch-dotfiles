@@ -27,6 +27,9 @@ RPROMPT='%F{red}%(?..[%?])%f'
 # Deferred loading
 source "${HOME}/.local/share/zsh-defer/zsh-defer.plugin.zsh"
 
+# COMPINIT
+zsh-defer -c 'autoload -Uz compinit && compinit -C'
+
 zsh-defer -c 'source "${HOME}/.local/share/fzf-tab/fzf-tab.plugin.zsh"'
 zsh-defer -c '
   source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -38,7 +41,17 @@ zsh-defer -c '
   bindkey "^[[A" history-substring-search-up
   bindkey "^[[B" history-substring-search-down
 '
+zsh-defer -c 'eval "$(direnv hook zsh)" 2>/dev/null'
 zsh-defer -c 'eval "$(zoxide init zsh)" 2>/dev/null'
+
+# Sudo widget
+sudo-command-line() {
+  [[ -z $BUFFER ]] && zle up-history
+  LBUFFER="${LBUFFER#sudo }"
+  [[ $BUFFER != sudo\ * ]] && LBUFFER="sudo $LBUFFER"
+}
+zle -N sudo-command-line
+bindkey '\e\e' sudo-command-line
 
 # Basic bindings
 bindkey '^a' beginning-of-line
