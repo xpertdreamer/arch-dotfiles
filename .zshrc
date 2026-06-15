@@ -1,7 +1,7 @@
 # History
 HISTSIZE=100000
 SAVEHIST=100000
-HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/history"
+HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history/zsh"
 
 # Options
 setopt prompt_subst always_to_end auto_menu complete_in_word
@@ -60,9 +60,6 @@ bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
 # Aliases
-alias list-gens="nixos-rebuild list-generations"
-alias update-input="nix flake update"
-alias sysup="nix flake update --flake ~/dotfiles && rebuild"
 alias dots="cd ~/dotfiles/"
 alias proj="cd ~/Projects"
 alias cls="clear"
