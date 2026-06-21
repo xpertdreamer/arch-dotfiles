@@ -44,6 +44,7 @@
 
 (setq confirm-kill-emacs nil)
 
+(setq +format-with-lsp nil)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `with-eval-after-load' block, otherwise Doom's defaults may override your

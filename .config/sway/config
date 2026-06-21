@@ -113,7 +113,7 @@ bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
 # Система
 bindsym $mod+Shift+o exec swaylock -f
 bindsym $mod+Shift+p exec systemctl suspend
-bindsym $mod+Shift+i exec systemctl hibernate
+bindsym $mod+Shift+i exec systemctl sleep
 bindsym $mod+Shift+r exec systemctl reboot
 bindsym $mod+Shift+u exec systemctl poweroff
 
