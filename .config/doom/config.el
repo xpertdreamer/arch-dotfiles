@@ -41,7 +41,7 @@
 
   '(font-lock-function-name-face :foreground "#e4e4ef" :weight regular)
   '(font-lock-variable-name-face :foreground "#e4e4ef")
-  '(font-lock-type-face          :foreground "#e4e4ef")
+  '(font-lock-type-face          :foreground "#ffdd33" :weight semi-bold)
   '(font-lock-constant-face      :foreground "#e4e4ef")
   '(font-lock-builtin-face       :foreground "#e4e4ef")
   '(font-lock-operator-face      :foreground "#e4e4ef")
