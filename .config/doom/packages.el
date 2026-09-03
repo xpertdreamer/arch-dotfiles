@@ -54,3 +54,4 @@
 ;; (unpin! t)
 
 (package! gruber-darker-theme)
+(package! fasm-mode)

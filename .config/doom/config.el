@@ -41,7 +41,7 @@
 
   '(font-lock-function-name-face :foreground "#e4e4ef" :weight regular)
   '(font-lock-variable-name-face :foreground "#e4e4ef")
-  '(font-lock-type-face          :foreground "#ffdd33" :weight semi-bold)
+  '(font-lock-type-face          :foreground "#727f8f" :weight semi-bold)
   '(font-lock-constant-face      :foreground "#e4e4ef")
   '(font-lock-builtin-face       :foreground "#e4e4ef")
   '(font-lock-operator-face      :foreground "#e4e4ef")
@@ -98,3 +98,6 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(use-package! fasm-mode
+  :mode ("\\.fasm\\'" "\\.asm\\'"))

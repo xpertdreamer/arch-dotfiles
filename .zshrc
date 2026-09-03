@@ -60,7 +60,7 @@ bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
 # Aliases
-alias dots="cd ~/dotfiles/"
+alias dots="cd ~/.dotfiles/"
 alias proj="cd ~/Projects"
 alias cls="clear"
 alias tls="tmux list-sessions"
@@ -72,6 +72,7 @@ alias mv="mv -iv"
 alias rm="rm -vI"
 alias mkd="mkdir -pv"
 alias grep="grep --color=always"
+alias mt1804="LC_ALL=ru_RU.UTF-8 wine MT1804R2ProNew2.exe"
 
 # Global aliases
 alias -g G="| grep"
