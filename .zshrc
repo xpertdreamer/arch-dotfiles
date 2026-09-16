@@ -72,7 +72,8 @@ alias mv="mv -iv"
 alias rm="rm -vI"
 alias mkd="mkdir -pv"
 alias grep="grep --color=always"
-alias mt1804="LC_ALL=ru_RU.UTF-8 wine MT1804R2ProNew2.exe"
+alias mt1804="LC_ALL=ru_RU.UTF-8 wine ~/MT1804R2ProNew2.exe"
 
 # Global aliases
 alias -g G="| grep"
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
