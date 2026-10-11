@@ -30,6 +30,8 @@ focus follows no
 # Режим по умолчанию - вкладки (tabbed)
 workspace_layout tabbed
 
+exec XDG_CURRENT_DESKTOP=sway dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOPx
+
 # Автозапуск
 exec waybar
 exec dunst

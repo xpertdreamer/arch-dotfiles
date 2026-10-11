@@ -16,6 +16,8 @@ fpath=("${HOME}/.local/share/nix-zsh-completions/share/zsh/site-functions" $fpat
 export FZF_DEFAULT_OPTS="--color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
 export PATH="$HOME/.config/emacs/bin:$PATH"
 . "$HOME/.cargo/env"
+export PATH=$PATH:$(go env GOPATH)/bin
+export FYNE_THEME=dark
 
 # Git branch function
 git_branch() {
@@ -62,6 +64,7 @@ bindkey '^e' end-of-line
 # Aliases
 alias dots="cd ~/.dotfiles/"
 alias proj="cd ~/Projects"
+alias home="cd ~"
 alias cls="clear"
 alias tls="tmux list-sessions"
 alias ls="ls -la --color=auto"
@@ -73,6 +76,7 @@ alias rm="rm -vI"
 alias mkd="mkdir -pv"
 alias grep="grep --color=always"
 alias mt1804="LC_ALL=ru_RU.UTF-8 wine ~/MT1804R2ProNew2.exe"
+alias gmake='make -C "$(git rev-parse --show-toplevel)"'
 
 # Global aliases
 alias -g G="| grep"
