@@ -36,22 +36,6 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'gruber-darker)
 
-(custom-set-faces!
-  '(default :background "#181818" :foreground "#e4e4ef")
-
-  '(font-lock-function-name-face :foreground "#e4e4ef" :weight regular)
-  '(font-lock-variable-name-face :foreground "#e4e4ef")
-  '(font-lock-type-face          :foreground "#727f8f" :weight semi-bold)
-  '(font-lock-constant-face      :foreground "#e4e4ef")
-  '(font-lock-builtin-face       :foreground "#e4e4ef")
-  '(font-lock-operator-face      :foreground "#e4e4ef")
-  '(font-lock-keyword-face       :foreground "#ffdd33" :weight bold)
-  '(font-lock-string-face        :foreground "#95a99f")
-  '(font-lock-comment-face       :foreground "#52494e" :slant italic)
-  '(font-lock-comment-delimiter-face :foreground "#52494e")
-  `(region :background "#453d41" :foreground "#ffdd33")
-)
-
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)

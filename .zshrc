@@ -58,8 +58,15 @@ zle -N sudo-command-line
 bindkey '\e\e' sudo-command-line
 
 # Basic bindings
-bindkey '^a' beginning-of-line
-bindkey '^e' end-of-line
+bindkey '^[[1;5C' forward-word    # Ctrl+Right
+bindkey '^[[1;5D' backward-word   # Ctrl+Left
+bindkey '\e[H'  beginning-of-line
+bindkey '\eOH'  beginning-of-line
+bindkey '\e[F'  end-of-line
+bindkey '\eOF'  end-of-line
+bindkey '\e[3~' delete-char
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
 
 # Aliases
 alias dots="cd ~/.dotfiles/"
@@ -76,6 +83,9 @@ alias rm="rm -vI"
 alias mkd="mkdir -pv"
 alias grep="grep --color=always"
 alias mt1804="LC_ALL=ru_RU.UTF-8 wine ~/MT1804R2ProNew2.exe"
+alias skebob="clear"
+alias simenov="ls"
+alias bob="cd ~/.dotfiles; ./bob.sh"
 alias gmake='make -C "$(git rev-parse --show-toplevel)"'
 
 # Global aliases
